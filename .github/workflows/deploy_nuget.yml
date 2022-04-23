@@ -1,0 +1,33 @@
+name: Test CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.1
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.5
+      with:
+        nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+        nuget-version: 'latest'
+    - name: Navigate to Workspace
+      run: cd $GITHUB_WORKSPACE
+    - name: Restore dependencies
+      run: nuget.exe restore LawBook.sln
+    - name: Build
+      run: msbuild.exe LawBook.sln /p:platform="Any CPU" /p:configuration="Release"
+    - name: Push packages
+      run: nuget.exe push "D:\a\LawBook\LawBook\src\LawBook\bin\Release\LawBook*.nupkg" -Source "https://api.nuget.org/v3/index.json" -ApiKey "${{ secrets.NUGET_API_KEY }}" -SkipDuplicate
+
