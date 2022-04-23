@@ -1,3 +1,29 @@
+/*****************************************************************************************************************
+ * You may amend and distribute as you like, but don't remove this header!
+ * 
+ * See https://github.com/TheLe0/LawBook for details.
+ *
+ * MIT License
+ * 
+ * Copyright (c) 2022 Leonardo Bertele Tosin
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+ * and associated documentation files (the "Software"), to deal in the Software without restriction,
+ * including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+ * and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
+ * subject to the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be included in all copies or substantial 
+ * portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT 
+ * LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+ * IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+ * OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ * 
+ ****************************************************************************************************************/
+
 using System;
 using Xunit;
 
@@ -5,13 +31,22 @@ namespace LawBook.Test
 {
     public class LawTest
     {
+        /// <summary>
+        /// Default message used to pass for the thrown exception.
+        /// </summary>
         private string _defaultMessage;
 
+        /// <summary>
+        /// Initializes the test class.
+        /// </summary>
         public LawTest()
         {
             _defaultMessage = "Throw error Message!";
         }
 
+        /// <summary>
+        /// Validate if two objects are distinct, success case.
+        /// </summary>
         [Fact]
         public void ObjectsMustNotBeEqualsTest()
         {
@@ -23,6 +58,9 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if two objects are distinct, fail case.
+        /// </summary>
         [Fact]
         public void ObjectsMustNotBeEqualsThrowsTest()
         {
@@ -32,6 +70,9 @@ namespace LawBook.Test
             Assert.Throws<GuiltyException>(() => Law.MustNotBeEquals(today, today1, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if two objects are the same, fail case.
+        /// </summary>
         [Fact]
         public void ObjectsMustBeEqualsThrowsTest()
         {
@@ -41,6 +82,9 @@ namespace LawBook.Test
             Assert.Throws<GuiltyException>(() => Law.MustBeEquals(today, today1, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if two objects are the same, success case.
+        /// </summary>
         [Fact]
         public void ObjectsMustBeEqualsTest()
         {
@@ -52,6 +96,9 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if two strings are the same, fail case.
+        /// </summary>
         [Fact]
         public void StringsMustBeEqualsThrowsTest()
         {
@@ -61,6 +108,9 @@ namespace LawBook.Test
             Assert.Throws<GuiltyException>(() => Law.MustBeEquals(foo, bar, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if two strings are the same, success case.
+        /// </summary>
         [Fact]
         public void StringsMustBeEqualsTest()
         {
@@ -72,16 +122,22 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if a string length is lower than defined, fail case.
+        /// </summary>
         [Fact]
-        public void StringsMustBeLowerLengthThrowsTest()
+        public void StringMustBeLowerLengthThrowsTest()
         {
             string foo = "Foobar";
 
             Assert.Throws<GuiltyException>(() => Law.MustBeLowerLength(foo, 3, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if a string length is lower than defined, success case.
+        /// </summary>
         [Fact]
-        public void StringsMustBeLowerLengthTest()
+        public void StringMustBeLowerLengthTest()
         {
             string foo = "Foobar";
 
@@ -90,16 +146,22 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if a string length is between an interval than defined, fail case.
+        /// </summary>
         [Fact]
-        public void StringsMustBeInBetweensLengthThrowsTest()
+        public void StringMustBeInBetweensLengthThrowsTest()
         {
             string foo = "Foobar";
 
             Assert.Throws<GuiltyException>(() => Law.MustBeInBetweensLength(foo, 3, 5, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if a string length is between an interval than defined, success case.
+        /// </summary>
         [Fact]
-        public void StringsMustBeInBetweensLengthTest()
+        public void StringMustBeInBetweensLengthTest()
         {
             string foo = "Foobar";
 
@@ -108,16 +170,22 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if a string is empty, fail case.
+        /// </summary>
         [Fact]
-        public void StringsMustBeNotEmptyThrowsTest()
+        public void StringMustBeNotEmptyThrowsTest()
         {
             string foo = string.Empty;
 
             Assert.Throws<GuiltyException>(() => Law.MustBeNotEmpty(foo, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if a string is empty, success case.
+        /// </summary>
         [Fact]
-        public void StringsMustBeNotEmptyTest()
+        public void StringMustBeNotEmptyTest()
         {
             string foo = "Foobar";
 
@@ -126,15 +194,21 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if an object is null, fail case.
+        /// </summary>
         [Fact]
-        public void StringsMustBeNotNullThrowsTest()
+        public void ObjectMustBeNotNullThrowsTest()
         {
 
             Assert.Throws<GuiltyException>(() => Law.MustBeNotNull(null, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if an object is null, success case.
+        /// </summary>
         [Fact]
-        public void StringsMustBeNotNullTest()
+        public void ObjectMustBeNotNullTest()
         {
             string foo = "Foobar";
 
@@ -143,6 +217,9 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if a double number is between an interval, fail case.
+        /// </summary>
         [Fact]
         public void DoubleMustNotBeInBetweensThrowsTest()
         {
@@ -151,6 +228,9 @@ namespace LawBook.Test
             Assert.Throws<GuiltyException>(() => Law.MustNotBeInBetweens(amount, 1.0, 2.0, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if a double number is between an interval, success case.
+        /// </summary>
         [Fact]
         public void DoubleMustNotBeInBetweensTest()
         {
@@ -161,6 +241,9 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if a float number is between an interval, fail case.
+        /// </summary>
         [Fact]
         public void FloatMustNotBeInBetweensThrowsTest()
         {
@@ -169,6 +252,9 @@ namespace LawBook.Test
             Assert.Throws<GuiltyException>(() => Law.MustNotBeInBetweens(amount, 1.0f, 2.0f, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if a float number is between an interval, success case.
+        /// </summary>
         [Fact]
         public void FloatMustNotBeInBetweensTest()
         {
@@ -179,6 +265,9 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if an int number is between an interval, fail case.
+        /// </summary>
         [Fact]
         public void IntMustNotBeInBetweensThrowsTest()
         {
@@ -187,6 +276,9 @@ namespace LawBook.Test
             Assert.Throws<GuiltyException>(() => Law.MustNotBeInBetweens(amount, 1, 2, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if an int number is between an interval, success case.
+        /// </summary>
         [Fact]
         public void IntMustNotBeInBetweensTest()
         {
@@ -197,6 +289,9 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if a long number is between an interval, fail case.
+        /// </summary>
         [Fact]
         public void LongMustNotBeInBetweensThrowsTest()
         {
@@ -205,6 +300,9 @@ namespace LawBook.Test
             Assert.Throws<GuiltyException>(() => Law.MustNotBeInBetweens(amount, 1, 2, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if a long number is between an interval, success case.
+        /// </summary>
         [Fact]
         public void LongMustNotBeInBetweensTest()
         {
@@ -215,6 +313,9 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if a decimal number is between an interval, fail case.
+        /// </summary>
         [Fact]
         public void DecimalMustNotBeInBetweensThrowsTest()
         {
@@ -223,6 +324,9 @@ namespace LawBook.Test
             Assert.Throws<GuiltyException>(() => Law.MustNotBeInBetweens(amount, 1.0M, 2.0M, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if a decimal number is between an interval, success case.
+        /// </summary>
         [Fact]
         public void DecimalMustNotBeInBetweensTest()
         {
@@ -233,6 +337,9 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if a long number is higher that a number defined, fail case.
+        /// </summary>
         [Fact]
         public void LongMustBeHigherThrowsTest()
         {
@@ -241,6 +348,9 @@ namespace LawBook.Test
             Assert.Throws<GuiltyException>(() => Law.MustBeHigher(amount, 10, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if a long number is higher that a number defined, success case.
+        /// </summary>
         [Fact]
         public void LongMustBeHigherTest()
         {
@@ -251,6 +361,9 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if a double number is higher that a number defined, fail case.
+        /// </summary>
         [Fact]
         public void DoubleMustBeHigherThrowsTest()
         {
@@ -259,6 +372,9 @@ namespace LawBook.Test
             Assert.Throws<GuiltyException>(() => Law.MustBeHigher(amount, 10.0, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if a double number is higher that a number defined, success case.
+        /// </summary>
         [Fact]
         public void DoubleMustBeHigherTest()
         {
@@ -269,6 +385,9 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if a decimal number is higher that a number defined, fail case.
+        /// </summary>
         [Fact]
         public void DecimalMustBeHigherThrowsTest()
         {
@@ -277,6 +396,9 @@ namespace LawBook.Test
             Assert.Throws<GuiltyException>(() => Law.MustBeHigher(amount, 10.0M, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if a decimal number is higher that a number defined, success case.
+        /// </summary>
         [Fact]
         public void DecimalMustBeHigherTest()
         {
@@ -287,6 +409,9 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if an int number is higher that a number defined, fail case.
+        /// </summary>
         [Fact]
         public void IntMustBeHigherThrowsTest()
         {
@@ -295,6 +420,9 @@ namespace LawBook.Test
             Assert.Throws<GuiltyException>(() => Law.MustBeHigher(amount, 10, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if an int number is higher that a number defined, success case.
+        /// </summary>
         [Fact]
         public void IntMustBeHigherTest()
         {
@@ -305,12 +433,18 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if a boolean expression is true, fail case.
+        /// </summary>
         [Fact]
         public void MustBeTrueThrowsTest()
         {
             Assert.Throws<GuiltyException>(() => Law.MustBeTrue(false, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if a boolean expression is true, success case.
+        /// </summary>
         [Fact]
         public void MustBeTrueTest()
         {
@@ -320,12 +454,18 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if a boolean expression is false, fail case.
+        /// </summary>
         [Fact]
         public void MustBeFalseThrowsTest()
         {
             Assert.Throws<GuiltyException>(() => Law.MustBeFalse(true, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if a boolean expression is false, success case.
+        /// </summary>
         [Fact]
         public void MustBeFalseTest()
         {
@@ -335,6 +475,9 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if a string value is contained on a list, fail case.
+        /// </summary>
         [Fact]
         public void StringMustBeContainedThrowsTest()
         {
@@ -347,6 +490,9 @@ namespace LawBook.Test
             Assert.Throws<GuiltyException>(() => Law.MustBeContained("foo", options, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if a string value is contained on a list, success case.
+        /// </summary>
         [Fact]
         public void StringMustBeContainedTest()
         {
@@ -361,6 +507,9 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if a string value is not contained on a list, fail case.
+        /// </summary>
         [Fact]
         public void StringMustNotBeContainedThrowsTest()
         {
@@ -373,6 +522,9 @@ namespace LawBook.Test
             Assert.Throws<GuiltyException>(() => Law.MustNotBeContained("hello", options, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if a string value is not contained on a list, success case.
+        /// </summary>
         [Fact]
         public void StringMustNotBeContainedTest()
         {
@@ -387,6 +539,9 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if an int number is contained on a list, fail case.
+        /// </summary>
         [Fact]
         public void IntMustBeContainedThrowsTest()
         {
@@ -399,6 +554,9 @@ namespace LawBook.Test
             Assert.Throws<GuiltyException>(() => Law.MustBeContained(1, options, _defaultMessage));
         }
 
+        /// <summary>
+        /// Validate if an int number is contained on a list, success case.
+        /// </summary>
         [Fact]
         public void IntMustBeContainedTest()
         {
@@ -413,6 +571,9 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if an int number is not contained on a list, success case.
+        /// </summary>
         [Fact]
         public void IntMustNotBeContainedThrowsTest()
         {
@@ -427,6 +588,9 @@ namespace LawBook.Test
             Assert.Null(exception);
         }
 
+        /// <summary>
+        /// Validate if an int number is not contained on a list, fail case.
+        /// </summary>
         [Fact]
         public void IntMustNotBeContainedTest()
         {
