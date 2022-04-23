@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LawBook", "LawBook\LawBook.csproj", "{25A660A7-D7FE-4F69-9122-C5A924435C2B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LawBook", "src\LawBook\LawBook.csproj", "{25A660A7-D7FE-4F69-9122-C5A924435C2B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LawBook.Test", "test\LawBook.Test\LawBook.Test.csproj", "{79FE8375-C34F-4ACC-8818-AE704993122D}"
 EndProject
