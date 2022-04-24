@@ -6,8 +6,8 @@ on:
     
 jobs:
   publish:
-    name: build, pack & publish
-    runs-on: ubuntu-latest
+    name: Publish NuGet
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
 
@@ -21,7 +21,8 @@ jobs:
         with:
           PROJECT_FILE_PATH: src/LawBook/LawBook.csproj
           PACKAGE_NAME: LawBook
-          VERSION_STATIC: 1.0.5
+          VERSION_FILE_PATH: src/LawBook/LawBook.csproj
+          VERSION_REGEX: ^\s*<Version>(.*)<\/Version>\s*$
           TAG_COMMIT: true
           NUGET_KEY: ${{secrets.NUGET_API_KEY}}
           NUGET_SOURCE: https://api.nuget.org
