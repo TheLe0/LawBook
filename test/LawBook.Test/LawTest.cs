@@ -174,22 +174,22 @@ namespace LawBook.Test
         /// Validate if a string is empty, fail case.
         /// </summary>
         [Fact]
-        public void StringMustBeNotEmptyThrowsTest()
+        public void StringMustNotBeEmptyThrowsTest()
         {
             string foo = string.Empty;
 
-            Assert.Throws<GuiltyException>(() => Law.MustBeNotEmpty(foo, _defaultMessage));
+            Assert.Throws<GuiltyException>(() => Law.MustNotBeEmpty(foo, _defaultMessage));
         }
 
         /// <summary>
         /// Validate if a string is empty, success case.
         /// </summary>
         [Fact]
-        public void StringMustBeNotEmptyTest()
+        public void StringMustNotBeEmptyTest()
         {
             string foo = "Foobar";
 
-            var exception = Record.Exception(() => Law.MustBeNotEmpty(foo, _defaultMessage));
+            var exception = Record.Exception(() => Law.MustNotBeEmpty(foo, _defaultMessage));
 
             Assert.Null(exception);
         }
@@ -198,21 +198,21 @@ namespace LawBook.Test
         /// Validate if an object is null, fail case.
         /// </summary>
         [Fact]
-        public void ObjectMustBeNotNullThrowsTest()
+        public void ObjectMustNotBeNullThrowsTest()
         {
 
-            Assert.Throws<GuiltyException>(() => Law.MustBeNotNull(null, _defaultMessage));
+            Assert.Throws<GuiltyException>(() => Law.MustNotBeNull(null, _defaultMessage));
         }
 
         /// <summary>
         /// Validate if an object is null, success case.
         /// </summary>
         [Fact]
-        public void ObjectMustBeNotNullTest()
+        public void ObjectMustNotBeNullTest()
         {
             string foo = "Foobar";
 
-            var exception = Record.Exception(() => Law.MustBeNotNull(foo, _defaultMessage));
+            var exception = Record.Exception(() => Law.MustNotBeNull(foo, _defaultMessage));
 
             Assert.Null(exception);
         }
@@ -601,6 +601,48 @@ namespace LawBook.Test
             };
 
             Assert.Throws<GuiltyException>(() => Law.MustNotBeContained(1, options, _defaultMessage));
+        }
+
+
+        /// <summary>
+        /// Validate if an int number is lower than a value, success case.
+        /// </summary>
+        [Fact]
+        public void IntMustBeLowerTest()
+        {
+
+            Assert.Throws<GuiltyException>(() => Law.MustBeLower(12, 10, _defaultMessage));
+        }
+
+        /// <summary>
+        /// Validate if an int number is lower than a value, fail case.
+        /// </summary>
+        [Fact]
+        public void IntMustBeLowerThrowsTest()
+        {
+            var exception = Record.Exception(() => Law.MustBeLower(10, 12, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+
+        /// <summary>
+        /// Validate if an int number is not lower than a value, success case.
+        /// </summary>
+        [Fact]
+        public void IntMustNotBeLowerTest()
+        {
+            var exception = Record.Exception(() => Law.MustNotBeLower(12, 10, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+
+        /// <summary>
+        /// Validate if an int number is not lower than a value, fail case.
+        /// </summary>
+        [Fact]
+        public void IntMustNotBeLowerThrowsTest()
+        {
+            Assert.Throws<GuiltyException>(() => Law.MustNotBeLower(10, 12, _defaultMessage));
         }
     }
 }

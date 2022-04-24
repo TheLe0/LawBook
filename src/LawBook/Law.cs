@@ -120,7 +120,7 @@ namespace LawBook
         /// <param name="value">The string value to be compared.</param>
         /// <param name="message">Message that shows If the exception throws.</param>
         /// <exception cref="GuiltyException">value</exception>
-        public static void MustBeNotEmpty(string value, string message)
+        public static void MustNotBeEmpty(string value, string message)
         {
             if (value == null || value.Trim().Length == 0 || value == string.Empty)
             {
@@ -134,7 +134,7 @@ namespace LawBook
         /// <param name="object1">The object to be compared.</param>
         /// <param name="message">Message that shows If the exception throws.</param>
         /// <exception cref="GuiltyException">object1</exception>
-        public static void MustBeNotNull(object? object1, string message)
+        public static void MustNotBeNull(object? object1, string message)
         {
             if (object1 == null)
             {
@@ -359,6 +359,36 @@ namespace LawBook
         public static void MustNotBeContained(int value, int[] options, string message)
         {
             if (!options.Contains(value))
+            {
+                throw new GuiltyException(message);
+            }
+        }
+
+        /// <summary>
+        /// Validate if a int value is lower than the specified value.
+        /// </summary>
+        /// <param name="value">The int value to be compared.</param>
+        /// <param name="max">The limit value allowed.</param>
+        /// <param name="message">Message that shows If the exception throws.</param>
+        /// <exception cref="GuiltyException">value</exception>
+        public static void MustBeLower(int value, int max, string message)
+        {
+            if (value >= max)
+            {
+                throw new GuiltyException(message);
+            }
+        }
+
+        /// <summary>
+        /// Validate if a int value is not lower than the specified value.
+        /// </summary>
+        /// <param name="value">The int value to be compared.</param>
+        /// <param name="max">The limit value allowed.</param>
+        /// <param name="message">Message that shows If the exception throws.</param>
+        /// <exception cref="GuiltyException">value</exception>
+        public static void MustNotBeLower(int value, int max, string message)
+        {
+            if (value < max)
             {
                 throw new GuiltyException(message);
             }
