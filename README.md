@@ -1,5 +1,8 @@
 # LawBook
-![Nuget](https://img.shields.io/nuget/v/LawBook) ![Nuget](https://img.shields.io/nuget/dt/LawBook) [![Build](https://github.com/TheLe0/LawBook/actions/workflows/deploy_nuget.yml/badge.svg)](https://github.com/TheLe0/LawBook/actions/workflows/deploy_nuget.yml) [![Build](https://github.com/TheLe0/LawBook/actions/workflows/pull_request.yml/badge.svg)](https://github.com/TheLe0/LawBook/actions/workflows/pull_request.yml)
+[![NuGet Version](https://img.shields.io/nuget/v/LawBook.svg)](https://www.nuget.org/packages/LawBook/ "NuGet Version")
+[![NuGet Downloads](https://img.shields.io/nuget/dt/LawBook.svg)](https://www.nuget.org/packages/LawBook/ "NuGet Downloads")
+[![Build](https://github.com/TheLe0/LawBook/actions/workflows/deploy_nuget.yml/badge.svg)](https://github.com/TheLe0/LawBook/actions/workflows/deploy_nuget.yml) 
+[![Build](https://github.com/TheLe0/LawBook/actions/workflows/pull_request.yml/badge.svg)](https://github.com/TheLe0/LawBook/actions/workflows/pull_request.yml)
 
 ![LawBook](./images/logo.png)
 
