@@ -1,4 +1,5 @@
 # LawBook
+![Nuget](https://img.shields.io/nuget/v/LawBook)
 
 ![LawBook](./images/logo.png)
 
