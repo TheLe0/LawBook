@@ -4,9 +4,9 @@
 [![Build](https://github.com/TheLe0/LawBook/actions/workflows/deploy_nuget.yml/badge.svg)](https://github.com/TheLe0/LawBook/actions/workflows/deploy_nuget.yml) 
 [![Build](https://github.com/TheLe0/LawBook/actions/workflows/pull_request.yml/badge.svg)](https://github.com/TheLe0/LawBook/actions/workflows/pull_request.yml)
 
-![LawBook](./images/logo.png)
+![logo](https://user-images.githubusercontent.com/40045069/165323242-ea668186-96bf-4597-8c42-249c74a212c3.png)
 
-LawBook provide some classes that helps you to do validations on your own classes. You can validate a lot of things, if values match or not, is on a specified interval, is contained on a list of values, match to a regex expression and a lot of other things.
+LawBook provide some classes that helps you to do validations on your own classes. You can validate a lot of things, if values match or not, is on a specified interval, is contained on a list of values, match to a regex expression and a lot of other things. This is based on the <b>Assertion Concern</b> pattern proposed by Vernon Vaughn on his book called Implementing Domain-Driven Design.
 
 This project was made because in a lot of projects I had to reproduce this validations structures, so I came with the idea to create a package with this solution and share with people who might find this helpfull.
 
