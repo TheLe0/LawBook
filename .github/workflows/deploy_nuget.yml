@@ -17,7 +17,7 @@ jobs:
           dotnet-version: 6.0.x
       - name: publish on version change
         id: publish_nuget
-        uses: rohith/publish-nuget@v2
+        uses: alirezanet/publish-nuget@v3.0.4
         with:
           PROJECT_FILE_PATH: src/LawBook/LawBook.csproj
           PACKAGE_NAME: LawBook
