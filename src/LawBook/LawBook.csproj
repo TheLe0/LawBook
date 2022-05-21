@@ -20,7 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\logo.png" Pack="true" Visible="false" PackagePath="images\logo.png" />
+    <None Include="..\..\logo.png" Pack="true" Visible="false" PackagePath="images\logo.png" />
   </ItemGroup>
 
 </Project>
