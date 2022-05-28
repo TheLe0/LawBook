@@ -4,7 +4,7 @@
     <TargetFramework>netstandard1.2</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Version>1.3.0</Version>
+    <Version>1.3.5</Version>
     <Authors>Leonardo Tosin</Authors>
     <PackageProjectUrl>https://github.com/TheLe0/LawBook</PackageProjectUrl>
     <PackageIconUrl>https://user-images.githubusercontent.com/40045069/165323242-ea668186-96bf-4597-8c42-249c74a212c3.png</PackageIconUrl>
