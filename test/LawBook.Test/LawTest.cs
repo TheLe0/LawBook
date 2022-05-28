@@ -34,7 +34,7 @@ namespace LawBook.Test
         /// <summary>
         /// Default message used to pass for the thrown exception.
         /// </summary>
-        private string _defaultMessage;
+        private readonly string _defaultMessage;
 
         /// <summary>
         /// Initializes the test class.
@@ -45,7 +45,7 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if two objects are distinct, success case.
+        /// Validates if two objects are distinct, success case.
         /// </summary>
         [Fact]
         public void ObjectsMustNotBeEqualsTest()
@@ -59,7 +59,7 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if two objects are distinct, fail case.
+        /// Validates if two objects are distinct, fail case.
         /// </summary>
         [Fact]
         public void ObjectsMustNotBeEqualsThrowsTest()
@@ -71,7 +71,7 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if two objects are the same, fail case.
+        /// Validates if two objects are the same, fail case.
         /// </summary>
         [Fact]
         public void ObjectsMustBeEqualsThrowsTest()
@@ -83,7 +83,7 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if two objects are the same, success case.
+        /// Validates if two objects are the same, success case.
         /// </summary>
         [Fact]
         public void ObjectsMustBeEqualsTest()
@@ -95,27 +95,600 @@ namespace LawBook.Test
 
             Assert.Null(exception);
         }
-
+        
         /// <summary>
-        /// Validate if two strings are the same, fail case.
+        /// Validates if two integer numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void IntegersMustBeEqualsThrowsTest()
+        {
+            const int number1 = 1;
+            const int number2 = 2;
+
+            Assert.Throws<GuiltyException>(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two integer numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void IntegersMustBeEqualsTest()
+        {
+            const int number1 = 1;
+            const int number2 = 1;
+
+            var exception = Record.Exception(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two integer numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void IntegersMustNotBeEqualsThrowsTest()
+        {
+            const int number1 = 1;
+            const int number2 = 1;
+
+            Assert.Throws<GuiltyException>(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two integer numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void IntegersMustNotBeEqualsTest()
+        {
+            const int number1 = 1;
+            const int number2 = 2;
+
+            var exception = Record.Exception(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two unsigned int numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void UIntegersMustBeEqualsThrowsTest()
+        {
+            const uint number1 = 1;
+            const uint number2 = 2;
+
+            Assert.Throws<GuiltyException>(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two unsigned int numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void UIntegersMustBeEqualsTest()
+        {
+            const uint number1 = 1;
+            const uint number2 = 1;
+
+            var exception = Record.Exception(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two unsigned int numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void UIntegersMustNotBeEqualsThrowsTest()
+        {
+            const uint number1 = 1;
+            const uint number2 = 1;
+
+            Assert.Throws<GuiltyException>(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two unsigned int numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void UIntegersMustNotBeEqualsTest()
+        {
+            const uint number1 = 1;
+            const uint number2 = 2;
+
+            var exception = Record.Exception(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two byte numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void BytesMustBeEqualsThrowsTest()
+        {
+            const byte number1 = 1;
+            const byte number2 = 2;
+
+            Assert.Throws<GuiltyException>(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two byte numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void BytesMustBeEqualsTest()
+        {
+            const byte number1 = 1;
+            const byte number2 = 1;
+
+            var exception = Record.Exception(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two byte numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void BytesMustNotBeEqualsThrowsTest()
+        {
+            const byte number1 = 1;
+            const byte number2 = 1;
+
+            Assert.Throws<GuiltyException>(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two byte numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void BytesMustNotBeEqualsTest()
+        {
+            const byte number1 = 1;
+            const byte number2 = 2;
+
+            var exception = Record.Exception(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two short byte numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void SbyteMustBeEqualsThrowsTest()
+        {
+            const sbyte number1 = 1;
+            const sbyte number2 = 2;
+
+            Assert.Throws<GuiltyException>(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two short byte numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void SbyteMustBeEqualsTest()
+        {
+            const sbyte number1 = 1;
+            const sbyte number2 = 1;
+
+            var exception = Record.Exception(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two short byte numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void SbyteMustNotBeEqualsThrowsTest()
+        {
+            const sbyte number1 = 1;
+            const sbyte number2 = 1;
+
+            Assert.Throws<GuiltyException>(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two short byte numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void SbyteMustNotBeEqualsTest()
+        {
+            const sbyte number1 = 1;
+            const sbyte number2 = 2;
+
+            var exception = Record.Exception(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two short numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void ShortMustNotBeEqualsTest()
+        {
+            const short number1 = 1;
+            const short number2 = 2;
+
+            var exception = Record.Exception(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two short numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void ShortMustBeEqualsThrowsTest()
+        {
+            const short number1 = 1;
+            const short number2 = 2;
+
+            Assert.Throws<GuiltyException>(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two short numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void ShortMustBeEqualsTest()
+        {
+            const short number1 = 1;
+            const short number2 = 1;
+
+            var exception = Record.Exception(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two short numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void ShortMustNotBeEqualsThrowsTest()
+        {
+            const short number1 = 1;
+            const short number2 = 1;
+
+            Assert.Throws<GuiltyException>(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two unsigned short numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void UShortMustNotBeEqualsTest()
+        {
+            const ushort number1 = 1;
+            const ushort number2 = 2;
+
+            var exception = Record.Exception(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two unsigned short numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void UShortMustBeEqualsThrowsTest()
+        {
+            const ushort number1 = 1;
+            const ushort number2 = 2;
+
+            Assert.Throws<GuiltyException>(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two unsigned short numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void UShortMustBeEqualsTest()
+        {
+            const ushort number1 = 1;
+            const ushort number2 = 1;
+
+            var exception = Record.Exception(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two unsigned short numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void UShortMustNotBeEqualsThrowsTest()
+        {
+            const ushort number1 = 1;
+            const ushort number2 = 1;
+
+            Assert.Throws<GuiltyException>(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+        }
+        
+                
+        /// <summary>
+        /// Validates if two long numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void LongMustNotBeEqualsTest()
+        {
+            const long number1 = 1;
+            const long number2 = 2;
+
+            var exception = Record.Exception(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two long numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void LongMustBeEqualsThrowsTest()
+        {
+            const long number1 = 1;
+            const long number2 = 2;
+
+            Assert.Throws<GuiltyException>(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two long numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void LongMustBeEqualsTest()
+        {
+            const long number1 = 1;
+            const long number2 = 1;
+
+            var exception = Record.Exception(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two long numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void LongMustNotBeEqualsThrowsTest()
+        {
+            const long number1 = 1;
+            const long number2 = 1;
+
+            Assert.Throws<GuiltyException>(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two float numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void FloatMustNotBeEqualsTest()
+        {
+            const float number1 = 0.01F;
+            const float number2 = 0.02F;
+
+            var exception = Record.Exception(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two float numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void FloatMustBeEqualsThrowsTest()
+        {
+            const float number1 = 0.01F;
+            const float number2 = 0.02F;
+
+            Assert.Throws<GuiltyException>(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two float numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void FloatMustBeEqualsTest()
+        {
+            const float number1 = 0.01F;
+            const float number2 = 0.01F;
+
+            var exception = Record.Exception(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two float numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void FloatMustNotBeEqualsThrowsTest()
+        {
+            const float number1 = 0.01F;
+            const float number2 = 0.01F;
+
+            Assert.Throws<GuiltyException>(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two decimal numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void DecimalMustNotBeEqualsTest()
+        {
+            const decimal number1 = 1;
+            const decimal number2 = 2;
+
+            var exception = Record.Exception(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two decimal numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void DecimalMustBeEqualsThrowsTest()
+        {
+            const decimal number1 = 1;
+            const decimal number2 = 2;
+
+            Assert.Throws<GuiltyException>(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two decimal numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void DecimalMustBeEqualsTest()
+        {
+            const decimal number1 = 1;
+            const decimal number2 = 1;
+
+            var exception = Record.Exception(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two decimal numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void DecimalMustNotBeEqualsThrowsTest()
+        {
+            const decimal number1 = 1;
+            const decimal number2 = 1;
+
+            Assert.Throws<GuiltyException>(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two double numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void DoubleMustNotBeEqualsTest()
+        {
+            const double number1 = 0.01;
+            const double number2 = 0.02;
+
+            var exception = Record.Exception(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two double numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void DoubleMustBeEqualsThrowsTest()
+        {
+            const double number1 = 0.01;
+            const double number2 = 0.02;
+
+            Assert.Throws<GuiltyException>(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two double numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void DoubleMustBeEqualsTest()
+        {
+            const double number1 = 0.01;
+            const double number2 = 0.01;
+
+            var exception = Record.Exception(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two double numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void DoubleMustNotBeEqualsThrowsTest()
+        {
+            const double number1 = 0.01;
+            const double number2 = 0.01;
+
+            Assert.Throws<GuiltyException>(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two long numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void ULongMustNotBeEqualsTest()
+        {
+            const ulong number1 = 1;
+            const ulong number2 = 2;
+
+            var exception = Record.Exception(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two long numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void ULongMustBeEqualsThrowsTest()
+        {
+            const ulong number1 = 1;
+            const ulong number2 = 2;
+
+            Assert.Throws<GuiltyException>(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two unsigned long numbers are the same, success case.
+        /// </summary>
+        [Fact]
+        public void ULongMustBeEqualsTest()
+        {
+            const ulong number1 = 1;
+            const ulong number2 = 1;
+
+            var exception = Record.Exception(() => Law.MustBeEquals(number1, number2, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+        
+        /// <summary>
+        /// Validates if two unsigned long numbers are the same, fail case.
+        /// </summary>
+        [Fact]
+        public void ULongMustNotBeEqualsThrowsTest()
+        {
+            const ulong number1 = 1;
+            const ulong number2 = 1;
+
+            Assert.Throws<GuiltyException>(() => Law.MustNotBeEquals(number1, number2, _defaultMessage));
+        }
+        
+        /// <summary>
+        /// Validates if two strings are the same, fail case.
         /// </summary>
         [Fact]
         public void StringsMustBeEqualsThrowsTest()
         {
-            string foo = "Foo";
-            string bar = "Bar";
+            const string foo = "Foo";
+            const string bar = "Bar";
 
             Assert.Throws<GuiltyException>(() => Law.MustBeEquals(foo, bar, _defaultMessage));
         }
 
         /// <summary>
-        /// Validate if two strings are the same, success case.
+        /// Validates if two strings are the same, success case.
         /// </summary>
         [Fact]
         public void StringsMustBeEqualsTest()
         {
-            string foo = "Foo";
-            string bar = "Foo";
+            const string foo = "Foo";
+            const string bar = "Foo";
 
             var exception = Record.Exception(() => Law.MustBeEquals(foo, bar, _defaultMessage));
 
@@ -123,23 +696,23 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if a string length is lower than defined, fail case.
+        /// Validates if a string length is lower than defined, fail case.
         /// </summary>
         [Fact]
         public void StringMustBeLowerLengthThrowsTest()
         {
-            string foo = "Foobar";
+            const string foo = "Foobar";
 
             Assert.Throws<GuiltyException>(() => Law.MustBeLowerLength(foo, 3, _defaultMessage));
         }
 
         /// <summary>
-        /// Validate if a string length is lower than defined, success case.
+        /// Validates if a string length is lower than defined, success case.
         /// </summary>
         [Fact]
         public void StringMustBeLowerLengthTest()
         {
-            string foo = "Foobar";
+            const string foo = "Foobar";
 
             var exception = Record.Exception(() => Law.MustBeLowerLength(foo, 10, _defaultMessage));
 
@@ -147,12 +720,12 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if a string length is between an interval than defined, fail case.
+        /// Validates if a string length is between an interval than defined, fail case.
         /// </summary>
         [Fact]
         public void StringMustBeInBetweensLengthThrowsTest()
         {
-            string foo = "Foobar";
+            const string foo = "Foobar";
 
             Assert.Throws<GuiltyException>(() => Law.MustBeInBetweensLength(foo, 3, 5, _defaultMessage));
         }
@@ -163,7 +736,7 @@ namespace LawBook.Test
         [Fact]
         public void StringMustBeInBetweensLengthTest()
         {
-            string foo = "Foobar";
+            const string foo = "Foobar";
 
             var exception = Record.Exception(() => Law.MustBeInBetweensLength(foo, 5, 10, _defaultMessage));
 
@@ -171,23 +744,23 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if a string is empty, fail case.
+        /// Validates if a string is empty, fail case.
         /// </summary>
         [Fact]
         public void StringMustNotBeEmptyThrowsTest()
         {
-            string foo = string.Empty;
+            var foo = string.Empty;
 
             Assert.Throws<GuiltyException>(() => Law.MustNotBeEmpty(foo, _defaultMessage));
         }
 
         /// <summary>
-        /// Validate if a string is empty, success case.
+        /// Validates if a string is empty, success case.
         /// </summary>
         [Fact]
         public void StringMustNotBeEmptyTest()
         {
-            string foo = "Foobar";
+            const string foo = "Foobar";
 
             var exception = Record.Exception(() => Law.MustNotBeEmpty(foo, _defaultMessage));
 
@@ -205,12 +778,12 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if an object is null, success case.
+        /// Validates if an object is null, success case.
         /// </summary>
         [Fact]
         public void ObjectMustNotBeNullTest()
         {
-            string foo = "Foobar";
+            const string foo = "Foobar";
 
             var exception = Record.Exception(() => Law.MustNotBeNull(foo, _defaultMessage));
 
@@ -218,23 +791,23 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if a double number is between an interval, fail case.
+        /// Validates if a double number is between an interval, fail case.
         /// </summary>
         [Fact]
         public void DoubleMustNotBeInBetweensThrowsTest()
         {
-            double amount = 0.5;
+            const double amount = 0.5;
 
             Assert.Throws<GuiltyException>(() => Law.MustNotBeInBetweens(amount, 1.0, 2.0, _defaultMessage));
         }
 
         /// <summary>
-        /// Validate if a double number is between an interval, success case.
+        /// Validates if a double number is between an interval, success case.
         /// </summary>
         [Fact]
         public void DoubleMustNotBeInBetweensTest()
         {
-            double amount = 2.25;
+            const double amount = 2.25;
 
             var exception = Record.Exception(() => Law.MustNotBeInBetweens(amount, 2.0, 2.5, _defaultMessage));
 
@@ -242,23 +815,23 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if a float number is between an interval, fail case.
+        /// Validates if a float number is between an interval, fail case.
         /// </summary>
         [Fact]
         public void FloatMustNotBeInBetweensThrowsTest()
         {
-            float amount = 0.5f;
+            const float amount = 0.5f;
 
             Assert.Throws<GuiltyException>(() => Law.MustNotBeInBetweens(amount, 1.0f, 2.0f, _defaultMessage));
         }
 
         /// <summary>
-        /// Validate if a float number is between an interval, success case.
+        /// Validates if a float number is between an interval, success case.
         /// </summary>
         [Fact]
         public void FloatMustNotBeInBetweensTest()
         {
-            float amount = 2.25f;
+            const float amount = 2.25f;
 
             var exception = Record.Exception(() => Law.MustNotBeInBetweens(amount, 2.0f, 2.5f, _defaultMessage));
 
@@ -266,23 +839,23 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if an int number is between an interval, fail case.
+        /// Validates if an int number is between an interval, fail case.
         /// </summary>
         [Fact]
         public void IntMustNotBeInBetweensThrowsTest()
         {
-            int amount = 5;
+            const int amount = 5;
 
             Assert.Throws<GuiltyException>(() => Law.MustNotBeInBetweens(amount, 1, 2, _defaultMessage));
         }
 
         /// <summary>
-        /// Validate if an int number is between an interval, success case.
+        /// Validates if an int number is between an interval, success case.
         /// </summary>
         [Fact]
         public void IntMustNotBeInBetweensTest()
         {
-            int amount = 225;
+            const int amount = 225;
 
             var exception = Record.Exception(() => Law.MustNotBeInBetweens(amount, 200, 250, _defaultMessage));
 
@@ -295,18 +868,18 @@ namespace LawBook.Test
         [Fact]
         public void LongMustNotBeInBetweensThrowsTest()
         {
-            long amount = 5;
+            const long amount = 5;
 
             Assert.Throws<GuiltyException>(() => Law.MustNotBeInBetweens(amount, 1, 2, _defaultMessage));
         }
 
         /// <summary>
-        /// Validate if a long number is between an interval, success case.
+        /// Validates if a long number is between an interval, success case.
         /// </summary>
         [Fact]
         public void LongMustNotBeInBetweensTest()
         {
-            long amount = 225;
+            const long amount = 225;
 
             var exception = Record.Exception(() => Law.MustNotBeInBetweens(amount, 200, 250, _defaultMessage));
 
@@ -314,23 +887,23 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if a decimal number is between an interval, fail case.
+        /// Validates if a decimal number is between an interval, fail case.
         /// </summary>
         [Fact]
         public void DecimalMustNotBeInBetweensThrowsTest()
         {
-            decimal amount = 5.0M;
+            const decimal amount = 5.0M;
 
             Assert.Throws<GuiltyException>(() => Law.MustNotBeInBetweens(amount, 1.0M, 2.0M, _defaultMessage));
         }
 
         /// <summary>
-        /// Validate if a decimal number is between an interval, success case.
+        /// Validates if a decimal number is between an interval, success case.
         /// </summary>
         [Fact]
         public void DecimalMustNotBeInBetweensTest()
         {
-            decimal amount = 225.0M;
+            const decimal amount = 225.0M;
 
             var exception = Record.Exception(() => Law.MustNotBeInBetweens(amount, 200.0M, 250.0M, _defaultMessage));
 
@@ -338,23 +911,23 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if a long number is higher that a number defined, fail case.
+        /// Validates if a long number is higher that a number defined, fail case.
         /// </summary>
         [Fact]
         public void LongMustBeHigherThrowsTest()
         {
-            long amount = 5;
+            const long amount = 5;
 
             Assert.Throws<GuiltyException>(() => Law.MustBeHigher(amount, 10, _defaultMessage));
         }
 
         /// <summary>
-        /// Validate if a long number is higher that a number defined, success case.
+        /// Validates if a long number is higher that a number defined, success case.
         /// </summary>
         [Fact]
         public void LongMustBeHigherTest()
         {
-            long amount = 5;
+            const long amount = 5;
 
             var exception = Record.Exception(() => Law.MustBeHigher(amount, 2, _defaultMessage));
 
@@ -362,23 +935,23 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if a double number is higher that a number defined, fail case.
+        /// Validates if a double number is higher that a number defined, fail case.
         /// </summary>
         [Fact]
         public void DoubleMustBeHigherThrowsTest()
         {
-            double amount = 5.0;
+            const double amount = 5.0;
 
             Assert.Throws<GuiltyException>(() => Law.MustBeHigher(amount, 10.0, _defaultMessage));
         }
 
         /// <summary>
-        /// Validate if a double number is higher that a number defined, success case.
+        /// Validates if a double number is higher that a number defined, success case.
         /// </summary>
         [Fact]
         public void DoubleMustBeHigherTest()
         {
-            double amount = 5.0;
+            const double amount = 5.0;
 
             var exception = Record.Exception(() => Law.MustBeHigher(amount, 2.0, _defaultMessage));
 
@@ -386,23 +959,23 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if a decimal number is higher that a number defined, fail case.
+        /// Validates if a decimal number is higher that a number defined, fail case.
         /// </summary>
         [Fact]
         public void DecimalMustBeHigherThrowsTest()
         {
-            decimal amount = 5.0M;
+            const decimal amount = 5.0M;
 
             Assert.Throws<GuiltyException>(() => Law.MustBeHigher(amount, 10.0M, _defaultMessage));
         }
 
         /// <summary>
-        /// Validate if a decimal number is higher that a number defined, success case.
+        /// Validates if a decimal number is higher that a number defined, success case.
         /// </summary>
         [Fact]
         public void DecimalMustBeHigherTest()
         {
-            decimal amount = 5.0M;
+            const decimal amount = 5.0M;
 
             var exception = Record.Exception(() => Law.MustBeHigher(amount, 2.0M, _defaultMessage));
 
@@ -410,23 +983,23 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if an int number is higher that a number defined, fail case.
+        /// Validates if an int number is higher that a number defined, fail case.
         /// </summary>
         [Fact]
         public void IntMustBeHigherThrowsTest()
         {
-            int amount = 5;
+            const int amount = 5;
 
             Assert.Throws<GuiltyException>(() => Law.MustBeHigher(amount, 10, _defaultMessage));
         }
 
         /// <summary>
-        /// Validate if an int number is higher that a number defined, success case.
+        /// Validates if an int number is higher that a number defined, success case.
         /// </summary>
         [Fact]
         public void IntMustBeHigherTest()
         {
-            int amount = 5;
+            const int amount = 5;
 
             var exception = Record.Exception(() => Law.MustBeHigher(amount, 2, _defaultMessage));
 
@@ -443,7 +1016,7 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if a boolean expression is true, success case.
+        /// Validates if a boolean expression is true, success case.
         /// </summary>
         [Fact]
         public void MustBeTrueTest()
@@ -481,7 +1054,7 @@ namespace LawBook.Test
         [Fact]
         public void StringMustBeContainedThrowsTest()
         {
-            string[] options = new string[]
+            var options = new[]
             {
                 "hello",
                 "world"
@@ -491,12 +1064,12 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if a string value is contained on a list, success case.
+        /// Validates if a string value is contained on a list, success case.
         /// </summary>
         [Fact]
         public void StringMustBeContainedTest()
         {
-            string[] options = new string[]
+            var options = new[]
             {
                 "hello",
                 "world"
@@ -508,12 +1081,12 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if a string value is not contained on a list, fail case.
+        /// Validates if a string value is not contained on a list, fail case.
         /// </summary>
         [Fact]
         public void StringMustNotBeContainedThrowsTest()
         {
-            string[] options = new string[]
+            var options = new[]
             {
                 "hello",
                 "world"
@@ -523,12 +1096,12 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if a string value is not contained on a list, success case.
+        /// Validates if a string value is not contained on a list, success case.
         /// </summary>
         [Fact]
         public void StringMustNotBeContainedTest()
         {
-            string[] options = new string[]
+            var options = new[]
             {
                 "hello",
                 "world"
@@ -540,12 +1113,12 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if an int number is contained on a list, fail case.
+        /// Validates if an int number is contained on a list, fail case.
         /// </summary>
         [Fact]
         public void IntMustBeContainedThrowsTest()
         {
-            int[] options = new int[]
+            var options = new[]
             {
                 2,
                 4
@@ -555,12 +1128,12 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if an int number is contained on a list, success case.
+        /// Validates if an int number is contained on a list, success case.
         /// </summary>
         [Fact]
         public void IntMustBeContainedTest()
         {
-            int[] options = new int[]
+            var options = new[]
             {
                 2,
                 4
@@ -572,12 +1145,12 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if an int number is not contained on a list, success case.
+        /// Validates if an int number is not contained on a list, success case.
         /// </summary>
         [Fact]
         public void IntMustNotBeContainedThrowsTest()
         {
-            int[] options = new int[]
+            var options = new[]
             {
                 2,
                 4
@@ -589,12 +1162,12 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if an int number is not contained on a list, fail case.
+        /// Validates if an int number is not contained on a list, fail case.
         /// </summary>
         [Fact]
         public void IntMustNotBeContainedTest()
         {
-            int[] options = new int[]
+            var options = new[]
             {
                 2,
                 4
@@ -605,7 +1178,7 @@ namespace LawBook.Test
 
 
         /// <summary>
-        /// Validate if an int number is lower than a value, success case.
+        /// Validates if an int number is lower than a value, success case.
         /// </summary>
         [Fact]
         public void IntMustBeLowerTest()
@@ -615,7 +1188,7 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if an int number is lower than a value, fail case.
+        /// Validates if an int number is lower than a value, fail case.
         /// </summary>
         [Fact]
         public void IntMustBeLowerThrowsTest()
@@ -626,7 +1199,7 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if an int number is not lower than a value, success case.
+        /// Validates if an int number is not lower than a value, success case.
         /// </summary>
         [Fact]
         public void IntMustNotBeLowerTest()
@@ -637,7 +1210,7 @@ namespace LawBook.Test
         }
 
         /// <summary>
-        /// Validate if an int number is not lower than a value, fail case.
+        /// Validates if an int number is not lower than a value, fail case.
         /// </summary>
         [Fact]
         public void IntMustNotBeLowerThrowsTest()
