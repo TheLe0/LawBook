@@ -36,7 +36,11 @@ Here is documented all changes that had been made on the package.
 ### Added
 - [Support for primitive types on MustBeEquals and MustNotBeEquals](https://github.com/TheLe0/LawBook/issues/7);
 
+## [1.3.6] - 2022-07-01
+### Added
+- [Validation if a string is Alphanumeric or Numeric](https://github.com/TheLe0/LawBook/issues/9);
 
+[1.3.6]: https://github.com/TheLe0/LawBook/releases/tag/1.3.6
 [1.3.5]: https://github.com/TheLe0/LawBook/releases/tag/1.3.5
 [1.3.0]: https://github.com/TheLe0/LawBook/releases/tag/1.3.0
 [1.2.8]: https://github.com/TheLe0/LawBook/releases/tag/1.2.8

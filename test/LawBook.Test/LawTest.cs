@@ -1217,5 +1217,57 @@ namespace LawBook.Test
         {
             Assert.Throws<GuiltyException>(() => Law.MustNotBeLower(10, 12, _defaultMessage));
         }
+
+        /// <summary>
+        /// Validates if an string is alphanumeric, success case.
+        /// </summary>
+        [Theory]
+        [InlineData("")]
+        [InlineData("a12324ffd")]
+        [InlineData("hello world")]
+        [InlineData("_--|||||")]
+        public void StringMustBeAlphaNumericTest(string value)
+        {
+            var exception = Record.Exception(() => Law.MustBeAlphanumeric(value, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+
+        /// <summary>
+        /// Validates if an string is alphanumeric, fail case.
+        /// </summary>
+        [Theory]
+        [InlineData("123245")]
+        [InlineData("000000")]
+        public void StringMustBeAlphaNumericThrowsTest(string value)
+        {
+            Assert.Throws<GuiltyException>(() => Law.MustBeAlphanumeric(value, _defaultMessage));
+        }
+
+        /// <summary>
+        /// Validates if an string is numeric, success case.
+        /// </summary>
+        [Theory]
+        [InlineData("123245")]
+        [InlineData("000000")]
+        public void StringMustBeNumericTest(string value)
+        {
+            var exception = Record.Exception(() => Law.MustBeNumeric(value, _defaultMessage));
+
+            Assert.Null(exception);
+        }
+
+        /// <summary>
+        /// Validates if an string is numeric, fail case.
+        /// </summary>
+        [Theory]
+        [InlineData("")]
+        [InlineData("a12324ffd")]
+        [InlineData("hello world")]
+        [InlineData("_--|||||")]
+        public void StringMustBeNumericThrowsTest(string value)
+        {
+            Assert.Throws<GuiltyException>(() => Law.MustBeNumeric(value, _defaultMessage));
+        }
     }
 }

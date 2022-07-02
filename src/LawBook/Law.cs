@@ -729,5 +729,37 @@ namespace LawBook
                 throw new GuiltyException(message);
             }
         }
+
+        /// <summary>
+        /// Validates if a string contains number and letters.
+        /// </summary>
+        /// <param name="value">The string value to be compared.</param>
+        /// <param name="message">Message that shows If the exception throws.</param>
+        /// <exception cref="GuiltyException">value</exception>
+        public static void MustBeAlphanumeric(string value, string message)
+        {
+            var isNumeric = int.TryParse(value, out _);
+
+            if (isNumeric)
+            {
+                throw new GuiltyException(message);
+            }
+        }
+
+        /// <summary>
+        /// Validates if a string contains only numbers.
+        /// </summary>
+        /// <param name="value">The string value to be compared.</param>
+        /// <param name="message">Message that shows If the exception throws.</param>
+        /// <exception cref="GuiltyException">value</exception>
+        public static void MustBeNumeric(string value, string message)
+        {
+            var isNumeric = int.TryParse(value, out _);
+
+            if (!isNumeric)
+            {
+                throw new GuiltyException(message);
+            }
+        }
     }
 }
