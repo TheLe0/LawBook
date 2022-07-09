@@ -24,6 +24,7 @@
  * 
  ****************************************************************************************************************/
 
+using LawBook.Extension;
 using System.Text.RegularExpressions;
 
 namespace LawBook
@@ -738,9 +739,7 @@ namespace LawBook
         /// <exception cref="GuiltyException">value</exception>
         public static void MustBeAlphanumeric(string value, string message)
         {
-            var isNumeric = int.TryParse(value, out _);
-
-            if (isNumeric)
+            if (value.IsNumeric())
             {
                 throw new GuiltyException(message);
             }
@@ -754,9 +753,7 @@ namespace LawBook
         /// <exception cref="GuiltyException">value</exception>
         public static void MustBeNumeric(string value, string message)
         {
-            var isNumeric = int.TryParse(value, out _);
-
-            if (!isNumeric)
+            if (!value.IsNumeric())
             {
                 throw new GuiltyException(message);
             }
