@@ -40,6 +40,11 @@ Here is documented all changes that had been made on the package.
 ### Added
 - [Validation if a string is Alphanumeric or Numeric](https://github.com/TheLe0/LawBook/issues/9);
 
+## [1.3.7] - 2022-07-09
+### Fixed
+- [MustBeNumeric falling to large number](https://github.com/TheLe0/LawBook/issues/11);
+
+[1.3.7]: https://github.com/TheLe0/LawBook/releases/tag/1.3.7
 [1.3.6]: https://github.com/TheLe0/LawBook/releases/tag/1.3.6
 [1.3.5]: https://github.com/TheLe0/LawBook/releases/tag/1.3.5
 [1.3.0]: https://github.com/TheLe0/LawBook/releases/tag/1.3.0

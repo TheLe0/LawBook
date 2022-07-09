@@ -1239,6 +1239,7 @@ namespace LawBook.Test
         [Theory]
         [InlineData("123245")]
         [InlineData("000000")]
+        [InlineData("43210687857215000101550000000012671000248520")]
         public void StringMustBeAlphaNumericThrowsTest(string value)
         {
             Assert.Throws<GuiltyException>(() => Law.MustBeAlphanumeric(value, _defaultMessage));
@@ -1250,6 +1251,7 @@ namespace LawBook.Test
         [Theory]
         [InlineData("123245")]
         [InlineData("000000")]
+        [InlineData("43210687857215000101550000000012671000248520")]
         public void StringMustBeNumericTest(string value)
         {
             var exception = Record.Exception(() => Law.MustBeNumeric(value, _defaultMessage));
